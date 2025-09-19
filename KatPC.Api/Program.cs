@@ -9,6 +9,19 @@ builder.Services.AddControllers();
 
 builder.Services.AddDbContext<KatPCDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("testCon")));
+    
+builder.Services.AddCors();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: "allowCors",
+        builder =>
+        {
+            builder.WithOrigins("http://localhost:4200")
+            .AllowCredentials()
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+        });
+});
 
 var app = builder.Build();
 
@@ -17,6 +30,8 @@ var app = builder.Build();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseCors();
 
 app.MapControllers();
 

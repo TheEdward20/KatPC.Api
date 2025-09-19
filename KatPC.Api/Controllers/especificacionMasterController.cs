@@ -6,11 +6,13 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using KatPC.Api.Model;
+using Microsoft.AspNetCore.Cors;
 
 namespace KatPC.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("allowCors")]
     public class especificacionMasterController : ControllerBase
     {
         private readonly KatPCDbContext _context;
