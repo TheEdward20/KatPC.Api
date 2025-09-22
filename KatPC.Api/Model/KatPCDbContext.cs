@@ -9,6 +9,6 @@ namespace KatPC.Api.Model
 
         }
 
-        public DbSet<especifiDATA> especifiDATA { get; set; }
+        public DbSet<KatPCDatos> KatPCs { get; set; }
     }
 }
