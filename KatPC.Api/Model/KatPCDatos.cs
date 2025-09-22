@@ -51,7 +51,7 @@ namespace KatPC.Api.Model
 
         public string Navegacion { get; set; }
 
-        public string Excelpprograma { get; set; }
+        public string Excelprograma { get; set; }
 
         public string Escrituradocum { get; set; }
 
@@ -81,7 +81,7 @@ namespace KatPC.Api.Model
 
         public string Bocinas { get; set; }
 
-        public string Pantllatactil { get; set; }  
+        public string Pantallatactil { get; set; }  
 
         public string Webcam { get; set; }
 
