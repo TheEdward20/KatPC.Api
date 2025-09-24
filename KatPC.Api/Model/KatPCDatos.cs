@@ -37,8 +37,6 @@ namespace KatPC.Api.Model
         public string Edicionfotoscad { get; set; }
         public string Edicionvideo { get; set; }
         public string Videojuego { get; set; }
-        
-        // ✅ Booleans (BIT en SQL Server)
         public bool Tecladoilumi { get; set; }
         public bool Windowshello { get; set; }
         public bool Puertosusb { get; set; }
@@ -55,14 +53,12 @@ namespace KatPC.Api.Model
         public bool Webcam { get; set; }
         public bool Pantallad { get; set; }
         public bool Botones { get; set; }
-
         public string Grado { get; set; }
         public string Condicionfisica { get; set; }
         public string Interpretacion { get; set; }
         public string Encargado { get; set; }
-
-        // ✅ Mejor como DateTime
         public DateTime Fechaprueba { get; set; }
+
 
     }
 }
