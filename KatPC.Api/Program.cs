@@ -9,6 +9,8 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<KatPCDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("testCon")));
 
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 // Configuración de CORS
 builder.Services.AddCors(options =>
 {
@@ -32,5 +34,7 @@ app.UseCors("allowCors");
 app.UseAuthorization();
 
 app.MapControllers();
+app.UseSwagger();
+app.UseSwaggerUI(c=> c.SwaggerEndpoint("/swagger/v1/swagger.json", "Ejemplo de API"));
 
 app.Run();
