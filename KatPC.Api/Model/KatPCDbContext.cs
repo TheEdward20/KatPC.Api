@@ -9,6 +9,7 @@ namespace KatPC.Api.Model
 
         }
 
+        public DbSet<KatPCUsuarios> KatPCuser { get; set; }
         public DbSet<KatPCDatos> KatPCs { get; set; }
     }
 }
