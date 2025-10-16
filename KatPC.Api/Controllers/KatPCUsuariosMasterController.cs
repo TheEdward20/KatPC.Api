@@ -20,18 +20,24 @@ namespace KatPC.Api.Controllers
             _context = context;
         }
 
-        
+
 
         // POST: api/KatPCUsuariosMaster
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<KatPCUsuarios>> PostKatPCUsuarios(KatPCUsuarios katPCUsuarios)
+        // LOGIN: solo validar usuario existente
+        [HttpPost("login")]
+        public async Task<ActionResult> Login([FromBody] KatPCUsuarios loginUser)
         {
-            _context.KatPCuser.Add(katPCUsuarios);
-            await _context.SaveChangesAsync();
+            var user = await _context.KatPCuser
+                .FirstOrDefaultAsync(u => u.Nombre == loginUser.Nombre && u.Passwor == loginUser.Passwor);
 
-            return CreatedAtAction("GetKatPCUsuarios", new { id = katPCUsuarios.IdUsuario }, katPCUsuarios);
+            if (user == null)
+                return Unauthorized("Usuario o contraseña incorrectos");
+
+            // Devuelve solo info necesaria para Angular
+            return Ok(new { message = "Login exitoso", userId = user.IdUsuario, nombre = user.Nombre });
         }
 
     }
+
 }
