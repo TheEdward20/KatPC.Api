@@ -16,7 +16,8 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("allowCors", policy =>
     {
-        policy.WithOrigins("http://localhost:4200") // Angular
+        policy.SetIsOriginAllowed(origin =>
+            origin.StartsWith("http://localhost") || origin == "https://katpc.netlify.app")
               .AllowAnyHeader()
               .AllowAnyMethod()
               .AllowCredentials();
