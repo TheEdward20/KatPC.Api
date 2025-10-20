@@ -11,5 +11,6 @@ namespace KatPC.Api.Model
 
         public DbSet<KatPCUsuarios> KatPCuser { get; set; }
         public DbSet<KatPCDatos> KatPCs { get; set; }
+        public DbSet<KatPCServicios> KatPCServices { get; set; }
     }
 }
